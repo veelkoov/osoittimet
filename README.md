@@ -75,7 +75,7 @@ This is how the memory could look like:
     |----------|---|---|---|---|---|---|---|---|---|---|----|----|----|----|----|----|-----|
     | Variable |   |   |   |   |       a       |                    p                | ... |
 
-As can see above, we do not know the value of `p`, because we did not assign a value to it. So the initial state is: `p` points on some garbage somewhere. Operating systems and/or programs do not deal well with garbage pointers. At best, the program will crash when `p` on use attempt. At worst, it will produce invalid results.
+As can see above, we do not know the value of `p`, because we did not assign a value to it. So the initial state is: `p` points on some garbage somewhere. Operating systems and/or programs do not deal well with garbage pointers. At best, the program will crash when an attempt to use `p` happens. At worst, it will produce invalid results.
 
 Let's modify our code to look like this, and check the memory:
 
@@ -91,7 +91,7 @@ int* p = &a;
     | Variable |   |   |   |   |       a       |                    p                | ... |
                                  ^----------------------------------'
 
-Now the value of `p` is `4` which is the _address_ of `a`. `p` "points at" `a`.
+Now the value of `p` is `4` which is the _address_ of `a`. `p` "points at" `a`. `&a` translates to "take the address of `a`".
 
 Let's now check the following:
 
